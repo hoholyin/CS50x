@@ -1,0 +1,7 @@
+0.  It is the longest word in the dictionary that we are loading
+1.  It is to measure the time taken for a process to be executed either by the calling process itself or the children of the calling process
+2.  16
+3.  So we know where is the start and end points of the process which is the time of loading/checking etc.
+4.  The file pointer assigned to int 'c' iterates through every character as it is a fgetc, will not stop until c reaches the end of file (!EOF) and move on the next letter once the loop is completed once, as per fetgetc property which is to advance the position indicator. It then checks if the char is an alphabet, a '\' or if the word is too long such that index=0 and it jumps out of the loop. If it satisfies the condition, the char will be added to the 'word' array slowly forming the word. Thus the loop is to check if every charactor is valid.
+5.  fscanf will not read strings with apostrophe or backslash as it is a word with multiple types, whereas we can use fgetc and (isalpha || \' || \) to qualify the symbols that we are allowing.
+6.  We do not want to accidentally modify the words in the dictionary, therefore promising the function that we are accepting a const char.

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Result
+{% endblock %}
+
+{% block main %}
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<table class="table table-striped" style="width:25%" align="center">
+    <tr>
+        <th bgcolor="#5697ff" align="center" height="50">{{city}}, {{country}}</th>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-date"></i>
+            Date: {{date}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-timer_clock"></i>
+            Local Time: {{l_time}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-thermometer"></i>
+            Temperature: {{world_weather_temp}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-cloud"></i>
+            Cloud Cover: {{cloud_cover}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-thunder_cloud_and_rain"></i>
+            Chance of Rain: {{pop}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-city_sunrise"></i>
+            Sunrise: {{sunrise}}
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ccffcc" align="center">
+            <i class="em em-city_sunset"></i>
+            Sunset: {{sunset}}
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped" style="width:25%" align="center">
+    <tr>
+        <th align="center" bgcolor="#ff9e16" height="50">Let's see what you can do today!</th>
+    </tr>
+    {% for activity in activities %}
+        <tr>
+            <td bgcolor="#ccffcc" align="center">
+                {{activity.name}}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

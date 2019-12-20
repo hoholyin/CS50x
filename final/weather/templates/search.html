@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('search') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <form action="/action_page.php" name="country" placeholder="Country">
+                    <select name="country">
+                        <option value="" disabled selected>Country</option>
+                        {% for c in countries %}
+                            <option value= "{{ c.countryname }}">{{ c.countryname }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="city" placeholder="City/State" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class = "btn btn-success" type="submit">Search</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

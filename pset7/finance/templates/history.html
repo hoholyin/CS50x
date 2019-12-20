@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+History
+<table class="table table-striped" style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Total value</th>
+        <th>Date and Time</th>
+        <th>Buy/Sell</th>
+    </tr>
+    {% for stocks in portfolio %}
+    <tr>
+        <td>{{ stocks.shares }}</td>
+        <td>{{ stocks.quantity }}</td>
+        <td>${{ stocks.total }}</td>
+        <td>{{ stocks.datetime }}</td>
+        <td>{{ stocks.buysell }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

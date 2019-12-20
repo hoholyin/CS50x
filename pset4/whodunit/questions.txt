@@ -1,0 +1,12 @@
+1.  It is a set of typedefs to define the width of an int
+2.  It defines the width of an int exactly so when different machines intepret it it will always be the same
+3.  1, 4, 4, 2
+4.  'B', 'M'
+5.  bisize is the number of bytes required by the structure, bfsize is the size of the bitmap file in bytes
+6.  It is top-down and te origin is at the upper left corner
+7.  biBitCount
+8.  If input file is an empty file
+9.  There is only one element to be read
+10. 3
+11. sets the position for the file to be overwritten
+12. it is the current position of the file pointer

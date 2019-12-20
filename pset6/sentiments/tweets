@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+import cs50
+import sys
+import helpers
+import os
+from analyzer import Analyzer
+from termcolor import colored
+
+
+
+
+def main():
+    if len(sys.argv)!= 2:
+        sys.exit("Usage: ./tweets @username")
+        
+    username=sys.argv[1].strip('@')
+    tweets=helpers.get_user_timeline(username, 50)
+    if tweets==None:
+        print("Screen name doesn’t exist or a screen name’s tweets are private")
+        exit(1)
+        
+    # absolute paths to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+    # instantiate analyzer
+    analyzer = Analyzer(positives, negatives)
+
+    # analyze word
+    for tweet in tweets:
+        score = analyzer.analyze(tweet)
+        if score > 0.0:
+            print(colored("Tweet: {} Score: {}".format(tweet, score), "green"))
+        elif score < 0.0:
+            print(colored("Tweet: {} Score: {}".format(tweet, score), "red"))
+        else:
+            print(colored("Tweet: {} Score: 0".format(tweet), "yellow"))    
+
+    
+    
+if __name__ == "__main__":
+    main()
